@@ -1,0 +1,23 @@
+# eShops
+ Ammu-Nation 
+ Epicerie 
+ Magasin électronique 
+ Magasin d'arme Illégal
+
+
+You can configure the jobs in the config.lua
+Config.jobs 
+
+The menu is in English, it's possible that there are some mistakes (I am French)
+
+# Credits
+
+<strong>RageUI by iTexZoz:</strong> <br> 
+https://github.com/iTexZoz/RageUI <br>
+<strong>RageUI Wiki:</strong> <br>
+https://github.com/iTexZoz/RageUI/wiki
+
+# Support 
+
+Sur mon discord :
+https://discord.gg/2qrMGzb
