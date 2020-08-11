@@ -34,28 +34,29 @@ Citizen.CreateThread(function()
     while true do
         RageUI.IsVisible(RMenu:Get('shoparme', 'main'), true, true, true, function()
             for k, v in pairs(Table) do
-                RageUI.Button(v.name, v.Descr, {RightLabel = "→→→"},true, function()
-                    RMenu:Get('shoparme', 'arme'):SetTitle(TitleSubMenu.Title)
-                    RMenu:Get('shoparme', 'arme'):SetSubtitle(TitleSubMenu.Descr)
-                    MenuUse = InMenu
+                RageUI.Button(v.name, v.Descr, {RightLabel = "→→→"},true, function(Hovered, Active, Selected)
+                    if (Selected) then
+                        RMenu:Get('shoparme', 'arme'):SetTitle(v.TitleSubMenu.Title)
+                        RMenu:Get('shoparme', 'arme'):SetSubtitle(v.TitleSubMenu.Descr)
+                        MenuUse = v.InMenu
+                    end
                 end, RMenu:Get('shoparme', 'arme'))
             end  
         end, function()
         end)
 
         RageUI.IsVisible(RMenu:Get('shoparme', 'arme'), true, true, true, function()
-            for b, n in pairs(MenuUse) do
-                RageUI.Button(n.name, n.Descr, n.Param, true, function(Hovered, Active, Selected)
-                    if (Selected) then
-                        TriggerServerEvent(n.action)
-                    end
-                end)
-            end   
+            if MenuUse ~= nil then
+                for b, n in pairs(MenuUse) do
+                    RageUI.Button(n.name, n.Descr, n.Param, true, function(Hovered, Active, Selected)
+                        if (Selected) then
+                            TriggerServerEvent(n.action)
+                        end
+                    end)
+                end  
+            end 
         end, function()
         end)
-        
-    end, function()
-    end, 1)
 
     Citizen.Wait(0)
 end
